@@ -1,0 +1,32 @@
+// darksim, Andy Kosela <akosela@andykosela.com>
+
+DML1
+
+// normal difficulty
+ObjProp -3994 "HitPoints" = 10
+ObjProp -3994 "MAX_HP" = 10
+// hard difficulty
+ObjProp -3995 "HitPoints" = 10
+ObjProp -3995 "MAX_HP" = 10
+// expert difficulty
+ObjProp -3996 "HitPoints" = 10
+ObjProp -3996 "MAX_HP" = 10
+
++ObjProp -2547 "FrobInfo"
+{
+    "World Action" Move
+    "Inv Action" 0
+}
+
+// disable health potions
+ObjProp -521 "Scripts"
+{
+    "Script 0" "EatFood"
+    "Script 1" ""
+    "Script 2" ""
+    "Script 3" ""
+    "Don't Inherit" 1
+}
+
+ObjProp -14 "HitPoints" = 10 
+ObjProp -14 "MAX_HP" = 10
