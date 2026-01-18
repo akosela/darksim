@@ -1,16 +1,15 @@
+DML1
 // darksim, Andy Kosela <akosela@andykosela.com>
 
-DML1
-
 // normal difficulty
-ObjProp -3994 "HitPoints" = 10
-ObjProp -3994 "MAX_HP" = 10
+ObjProp -3994 "HitPoints" = 8
+ObjProp -3994 "MAX_HP" = 8
 // hard difficulty
-ObjProp -3995 "HitPoints" = 10
-ObjProp -3995 "MAX_HP" = 10
+ObjProp -3995 "HitPoints" = 8
+ObjProp -3995 "MAX_HP" = 8
 // expert difficulty
-ObjProp -3996 "HitPoints" = 10
-ObjProp -3996 "MAX_HP" = 10
+ObjProp -3996 "HitPoints" = 8
+ObjProp -3996 "MAX_HP" = 8
 
 +ObjProp -2547 "FrobInfo"
 {
@@ -28,5 +27,5 @@ ObjProp -521 "Scripts"
     "Don't Inherit" 1
 }
 
-ObjProp -14 "HitPoints" = 10 
-ObjProp -14 "MAX_HP" = 10
+ObjProp -14 "HitPoints" = 8
+ObjProp -14 "MAX_HP" = 8
