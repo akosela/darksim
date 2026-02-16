@@ -27,7 +27,7 @@ bind = "gamma_delta -0.025"
 bind ?+alt "render_info 30"
 bind [ "cycle_item -1"
 bind ] "cycle_item 1"
-bind ` clear_weapon
+bind ` edit_command
 bind `+alt+shift screen_dump
 bind a +turnleftfast
 bind alt +slideon
@@ -88,7 +88,7 @@ bind n+alt+shift "patrol_test 2"
 bind o objectives
 bind o+alt+ctrl "rend_name_toggle 23"
 bind o+ctrl lit_obj_toggle
-bind p edit_command
+bind p clear_weapon
 bind p+alt+ctrl+shift fake_physics
 bind p+ctrl "history_cmd -1"
 bind pgdn "inv_select compass2"
