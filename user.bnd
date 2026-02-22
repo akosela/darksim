@@ -35,21 +35,25 @@ bind 9+alt+ctrl "scale_player_speed 3"
 bind : edit_command
 bind = "gamma_delta -0.025"
 bind ?+alt "render_info 30"
-bind [ "cycle_item -1"
-bind ] "cycle_item 1"
+bind [ prev_item
+bind \ drop_item
+bind ] next_item
 bind ` edit_command
 bind `+alt+shift screen_dump
 bind a +turnleftfast
 bind alt +slideon
 bind backspace clear_item
 bind c +moverightfast
+bind ctrl crouch
 bind d +turnrightfast
 bind d+alt+ctrl "dump_cmds cmd.txt"
+bind del +leanleft
 bind down +backfast
 bind e +leanright
 bind e+alt edit_mode
 bind e+shift "+fly -1"
 bind end +leanright
+bind enter +use_item
 bind esc sim_menu
 bind f crouch
 bind f+ctrl ai_forget_player
@@ -71,7 +75,7 @@ bind f8 "inv_select mine"
 bind f8+alt ai_aware_of_player
 bind g +lookdown
 bind g+alt game_mode
-bind home "move_game_camera 0.0,0.0,0.0"
+bind home +leanforward
 bind keypad_center +forward
 bind keypad_del lookcenter
 bind keypad_down +backfast
@@ -88,7 +92,6 @@ bind keypad_slash "cycle_item -1"
 bind keypad_star "cycle_item 1"
 bind keypad_up +walkfast
 bind lalt +slideon
-bind lctrl crouch
 bind left +moveleftfast
 bind m automap
 bind mouse1 +use_weapon
@@ -96,6 +99,8 @@ bind mouse2 +use_item
 bind mouse3 +block
 bind mouse_axisx mturn
 bind mouse_axisy mlook
+bind mouse_wheel_down prev_weapon
+bind mouse_wheel_up next_weapon
 bind n+alt+shift "patrol_test 2"
 bind o objectives
 bind o+alt+ctrl "rend_name_toggle 23"
@@ -106,8 +111,8 @@ bind p clear_weapon
 bind p+alt+ctrl physics
 bind p+alt+ctrl+shift fake_physics
 bind p+ctrl "history_cmd -1"
-bind pgdn "inv_select compass2"
-bind pgup +lookup
+bind pgdn +jump
+bind pgup clear_weapon
 bind print_screen screen_dump
 bind q +leanleft
 bind q+alt foot_sounds
@@ -117,13 +122,12 @@ bind r drop_item
 bind r+alt "run .\cmds\editmodeatplr.cmd"
 bind r+alt+shift draw_path_cells
 bind ralt +slideon
-bind rctrl crouch
 bind right +moverightfast
 bind s +forward
 bind s+alt+ctrl+shift stats_full
 bind s+alt+shift show_stats
 bind shift +leanleft
-bind space +jumpblock
+bind space +jump
 bind t +lookup
 bind t+alt+ctrl+shift time_stats
 bind t+alt+shift draw_path_cell_links
@@ -138,7 +142,6 @@ bind w+alt+shift +leanforward
 bind x +backfast
 bind x+alt+shift quit_game
 bind z +moveleftfast
-bind ~ clear_weapon
 
 bow_zoom 0
 joystick_enable 0
