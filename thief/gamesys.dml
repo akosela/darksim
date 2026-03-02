@@ -27,5 +27,6 @@ ObjProp -521 "Scripts"
     "Don't Inherit" 1
 }
 
-ObjProp -14 "HitPoints" = 8
-ObjProp -14 "MAX_HP" = 8
+// human archetype
++ObjProp -14 "HitPoints" = 8
++ObjProp -14 "MAX_HP" = 8
