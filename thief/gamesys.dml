@@ -28,5 +28,5 @@ ObjProp -521 "Scripts"
 }
 
 // human archetype
-+ObjProp -14 "HitPoints" = 8
-+ObjProp -14 "MAX_HP" = 8
++ObjProp -14 "HitPoints" = 6
++ObjProp -14 "MAX_HP" = 6

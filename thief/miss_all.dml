@@ -1,0 +1,10 @@
+DML1
+// darksim, Andy Kosela <akosela@andykosela.com>
+
+// mission 2
+ObjProp "frontgateguard1" "HitPoints" = 7
+ObjProp "frontgateguard1" "MAX_HP"   = 7
+ObjProp "frontgateguard2" "HitPoints" = 7
+ObjProp "frontgateguard2" "MAX_HP"   = 7
+ObjProp "frontgateguard3" "HitPoints" = 7
+ObjProp "frontgateguard3" "MAX_HP"   = 7
