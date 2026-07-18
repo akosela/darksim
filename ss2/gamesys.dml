@@ -1,2 +1,18 @@
 DML1
 // darksim, Andy Kosela <akosela@andykosela.com>
+
+TagBlock "DIFFPARAM"
+{
+	"Base HP: Playtest" 6
+	"Base HP: Easy" 6
+	"Base HP: Normal" 6
+	"Base HP: Hard" 6
+	"Base HP: Imposs" 6
+	"Base HP: Multi" 6
+	"HP per END: Playtest" 0
+	"HP per END: Easy" 0
+	"HP per END: Normal" 0
+	"HP per END: Hard" 0
+	"HP per END: Imposs" 0
+	"HP per END: Multi" 0
+}
