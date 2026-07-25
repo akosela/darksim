@@ -3,16 +3,16 @@ DML1
 
 TagBlock "DIFFPARAM"
 {
-	"Base HP: Playtest" 6
-	"Base HP: Easy" 6
-	"Base HP: Normal" 6
-	"Base HP: Hard" 6
-	"Base HP: Imposs" 6
-	"Base HP: Multi" 6
-	"HP per END: Playtest" 0
-	"HP per END: Easy" 0
-	"HP per END: Normal" 0
-	"HP per END: Hard" 0
-	"HP per END: Imposs" 0
-	"HP per END: Multi" 0
+	"Base HP: Playtest" 5
+	"Base HP: Easy" 5
+	"Base HP: Normal" 5
+	"Base HP: Hard" 5
+	"Base HP: Imposs" 5
+	"Base HP: Multi" 5
+	"HP per END: Playtest" 1
+	"HP per END: Easy" 1
+	"HP per END: Normal" 1
+	"HP per END: Hard" 1
+	"HP per END: Imposs" 1
+	"HP per END: Multi" 1
 }
