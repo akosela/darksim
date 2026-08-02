@@ -1,0 +1,1500 @@
+DML1
+
+// Unified Ultimate Difficulty Mod (T1/TG/T2): gamesys.dml
+
+//helper script
+#script "ultdiff"
+
+//new archetypes
+CreateArch "Stimulus" "UDMStims"
+{
+}
+CreateArch "UDMStims" "UDMSpeedTestStim"
+{
+}
+CreateArch "UDMStims" "P-UDMResetStim"
+{
+}
+CreateArch "UDMStims" "P-UDMPulseStim"
+{
+}
++Receptron "M-KnockedOut" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Effect "Abort"
+}
+CreateArch "UDMStims" "P-UDMInertStim"
+{
+}
+CreateArch "UDMStims" "P-UDMTimerStim"
+{
+}
+CreateArch "UDMStims" "P-UDMPingStim"
+{
+}
+CreateArch "UDMStims" "UDMPlayerInitStim"
+{
+}
+CreateArch "MetaProperty" "UDMAI"
+{
+}
+CreateArch "UDMAI" "UDMVision"
+{
+}
+CreateArch "UDMVision" "UDMVision1"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 1.00
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 10
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 90
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMVision" "UDMVision2"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 2.00
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 10
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 90
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMVision" "UDMVision3"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 3.00
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 6
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 110
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMVision" "UDMVision0"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 0.00
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 10
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 110
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMVision" "UDMVision05"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 0.50
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 6
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 110
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMVision" "UDMVision35"
+{
+	+ObjProp "AI_VisDesc"
+	{
+		"Z Offset" 3.50
+		"Cone 1: Flags" "Active, No alert 0, No alert 1, Night vision"
+		"Cone 1: Angle" 170
+		"Cone 1: Z angle" 170
+		"Cone 1: Range" 6
+		"Cone 1: Acuity" 1500
+		"Cone 2: Flags" "Active, No alert 2, No alert 3, Night vision"
+		"Cone 2: Angle" 50
+		"Cone 2: Z angle" 100
+		"Cone 2: Range" 5
+		"Cone 2: Acuity" 1500
+		"Cone 3: Flags" "Active, No alert 2, No alert 3"
+		"Cone 3: Angle" 170
+		"Cone 3: Z angle" 170
+		"Cone 3: Range" 5
+		"Cone 3: Acuity" 1500
+		"Cone 4: Flags" "Active, No alert 0, No alert 1, Omni"
+		"Cone 4: Angle" 360
+		"Cone 4: Z angle" 90
+		"Cone 4: Range" 6
+		"Cone 4: Acuity" 250
+		"Cone 5: Flags" "Active"
+		"Cone 5: Angle" 60
+		"Cone 5: Z angle" 90
+		"Cone 5: Range" 20
+		"Cone 5: Acuity" 250
+		"Cone 6: Flags" "Active"
+		"Cone 6: Angle" 90
+		"Cone 6: Z angle" 85
+		"Cone 6: Range" 40
+		"Cone 6: Acuity" 125
+		"Cone 7: Flags" "Active"
+		"Cone 7: Angle" 130
+		"Cone 7: Z angle" 90
+		"Cone 7: Range" 60
+		"Cone 7: Acuity" 85
+		"Cone 8: Flags" "Active, No alert 0, Peripheral"
+		"Cone 8: Angle" 270
+		"Cone 8: Z angle" 90
+		"Cone 8: Range" 5
+		"Cone 8: Acuity" 75
+		"Cone 9: Flags" "Active, Peripheral"
+		"Cone 9: Angle" 230
+		"Cone 9: Z angle" 90
+		"Cone 9: Range" 80
+		"Cone 9: Acuity" 63
+		"Cone 10: Flags" "Active, Peripheral"
+		"Cone 10: Angle" 250
+		"Cone 10: Z angle" 120
+		"Cone 10: Range" 120
+		"Cone 10: Acuity" 43
+	}
+}
+CreateArch "UDMAI" "UDMFlee"
+{
+}
+CreateArch "UDMFlee" "P-UDMFleeInit"
+{
+	+ObjProp "AI_AlrtRsp"
+	{
+		"Alert level" "(3) High"
+		"Priority" "Very high"
+		"Response: Step 1" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1" "Add"
+		"   Argument 2" "P-UDMFleeAlerted"
+		"   Argument 3" ""
+		"Response: Step 2" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[1] "Remove"
+		"   Argument 2"[1] "P-UDMFleeInit"
+		"   Argument 3"[1] ""
+		"Response: Step 3" "Nothing()"
+		"   Argument 1"[2] ""
+		"   Argument 2"[2] ""
+		"   Argument 3"[2] ""
+		"Response: Step 4" "Nothing()"
+		"   Argument 1"[3] ""
+		"   Argument 2"[3] ""
+		"   Argument 3"[3] ""
+		"Response: Step 5" "Nothing()"
+		"   Argument 1"[4] ""
+		"   Argument 2"[4] ""
+		"   Argument 3"[4] ""
+		"Response: Step 6" "Nothing()"
+		"   Argument 1"[5] ""
+		"   Argument 2"[5] ""
+		"   Argument 3"[5] ""
+		"Response: Step 7" "Nothing()"
+		"   Argument 1"[6] ""
+		"   Argument 2"[6] ""
+		"   Argument 3"[6] ""
+		"Response: Step 8" "Nothing()"
+		"   Argument 1"[7] ""
+		"   Argument 2"[7] ""
+		"   Argument 3"[7] ""
+		"Response: Step 9" "Nothing()"
+		"   Argument 1"[8] ""
+		"   Argument 2"[8] ""
+		"   Argument 3"[8] ""
+		"Response: Step 10" "Nothing()"
+		"   Argument 1"[9] ""
+		"   Argument 2"[9] ""
+		"   Argument 3"[9] ""
+		"Response: Step 11" "Nothing()"
+		"   Argument 1"[10] ""
+		"   Argument 2"[10] ""
+		"   Argument 3"[10] ""
+		"Response: Step 12" "Nothing()"
+		"   Argument 1"[11] ""
+		"   Argument 2"[11] ""
+		"   Argument 3"[11] ""
+		"Response: Step 13" "Nothing()"
+		"   Argument 1"[12] ""
+		"   Argument 2"[12] ""
+		"   Argument 3"[12] ""
+		"Response: Step 14" "Nothing()"
+		"   Argument 1"[13] ""
+		"   Argument 2"[13] ""
+		"   Argument 3"[13] ""
+		"Response: Step 15" "Nothing()"
+		"   Argument 1"[14] ""
+		"   Argument 2"[14] ""
+		"   Argument 3"[14] ""
+		"Response: Step 16" "Nothing()"
+		"   Argument 1"[15] ""
+		"   Argument 2"[15] ""
+		"   Argument 3"[15] ""
+	}
+	+ObjProp "AI_BodyRsp"
+	{
+		"Priority" "Very high"
+		"Response: Step 1" "Nothing()"
+		"   Argument 1" ""
+		"   Argument 2" ""
+		"   Argument 3" ""
+		"Response: Step 2" "Nothing()"
+		"   Argument 1"[1] ""
+		"   Argument 2"[1] ""
+		"   Argument 3"[1] ""
+		"Response: Step 3" "Nothing()"
+		"   Argument 1"[2] ""
+		"   Argument 2"[2] ""
+		"   Argument 3"[2] ""
+		"Response: Step 4" "Nothing()"
+		"   Argument 1"[3] ""
+		"   Argument 2"[3] ""
+		"   Argument 3"[3] ""
+		"Response: Step 5" "Nothing()"
+		"   Argument 1"[4] ""
+		"   Argument 2"[4] ""
+		"   Argument 3"[4] ""
+		"Response: Step 6" "Nothing()"
+		"   Argument 1"[5] ""
+		"   Argument 2"[5] ""
+		"   Argument 3"[5] ""
+		"Response: Step 7" "Nothing()"
+		"   Argument 1"[6] ""
+		"   Argument 2"[6] ""
+		"   Argument 3"[6] ""
+		"Response: Step 8" "Nothing()"
+		"   Argument 1"[7] ""
+		"   Argument 2"[7] ""
+		"   Argument 3"[7] ""
+		"Response: Step 9" "Nothing()"
+		"   Argument 1"[8] ""
+		"   Argument 2"[8] ""
+		"   Argument 3"[8] ""
+		"Response: Step 10" "Nothing()"
+		"   Argument 1"[9] ""
+		"   Argument 2"[9] ""
+		"   Argument 3"[9] ""
+		"Response: Step 11" "Nothing()"
+		"   Argument 1"[10] ""
+		"   Argument 2"[10] ""
+		"   Argument 3"[10] ""
+		"Response: Step 12" "Nothing()"
+		"   Argument 1"[11] ""
+		"   Argument 2"[11] ""
+		"   Argument 3"[11] ""
+		"Response: Step 13" "Nothing()"
+		"   Argument 1"[12] ""
+		"   Argument 2"[12] ""
+		"   Argument 3"[12] ""
+		"Response: Step 14" "Nothing()"
+		"   Argument 1"[13] ""
+		"   Argument 2"[13] ""
+		"   Argument 3"[13] ""
+		"Response: Step 15" "Nothing()"
+		"   Argument 1"[14] ""
+		"   Argument 2"[14] ""
+		"   Argument 3"[14] ""
+		"Response: Step 16" "Nothing()"
+		"   Argument 1"[15] ""
+		"   Argument 2"[15] ""
+		"   Argument 3"[15] ""
+	}
+	+ObjProp "AISuprise"
+	{
+		"" 0.00, 0.00, 0.00
+	}
+}
+CreateArch "UDMFlee" "P-UDMFleeAlerted"
+{
+	+ObjProp "AI_AlrtRsp"
+	{
+		"Alert level" "(3) High"
+		"Priority" "Very high"
+		"Response: Step 1" "Nothing()"
+		"   Argument 1" ""
+		"   Argument 2" ""
+		"   Argument 3" ""
+		"Response: Step 2" "Nothing()"
+		"   Argument 1"[1] ""
+		"   Argument 2"[1] ""
+		"   Argument 3"[1] ""
+		"Response: Step 3" "Nothing()"
+		"   Argument 1"[2] ""
+		"   Argument 2"[2] ""
+		"   Argument 3"[2] ""
+		"Response: Step 4" "Nothing()"
+		"   Argument 1"[3] ""
+		"   Argument 2"[3] ""
+		"   Argument 3"[3] ""
+		"Response: Step 5" "Nothing()"
+		"   Argument 1"[4] ""
+		"   Argument 2"[4] ""
+		"   Argument 3"[4] ""
+		"Response: Step 6" "Nothing()"
+		"   Argument 1"[5] ""
+		"   Argument 2"[5] ""
+		"   Argument 3"[5] ""
+		"Response: Step 7" "Nothing()"
+		"   Argument 1"[6] ""
+		"   Argument 2"[6] ""
+		"   Argument 3"[6] ""
+		"Response: Step 8" "Nothing()"
+		"   Argument 1"[7] ""
+		"   Argument 2"[7] ""
+		"   Argument 3"[7] ""
+		"Response: Step 9" "Nothing()"
+		"   Argument 1"[8] ""
+		"   Argument 2"[8] ""
+		"   Argument 3"[8] ""
+		"Response: Step 10" "Nothing()"
+		"   Argument 1"[9] ""
+		"   Argument 2"[9] ""
+		"   Argument 3"[9] ""
+		"Response: Step 11" "Nothing()"
+		"   Argument 1"[10] ""
+		"   Argument 2"[10] ""
+		"   Argument 3"[10] ""
+		"Response: Step 12" "Nothing()"
+		"   Argument 1"[11] ""
+		"   Argument 2"[11] ""
+		"   Argument 3"[11] ""
+		"Response: Step 13" "Nothing()"
+		"   Argument 1"[12] ""
+		"   Argument 2"[12] ""
+		"   Argument 3"[12] ""
+		"Response: Step 14" "Nothing()"
+		"   Argument 1"[13] ""
+		"   Argument 2"[13] ""
+		"   Argument 3"[13] ""
+		"Response: Step 15" "Nothing()"
+		"   Argument 1"[14] ""
+		"   Argument 2"[14] ""
+		"   Argument 3"[14] ""
+		"Response: Step 16" "Nothing()"
+		"   Argument 1"[15] ""
+		"   Argument 2"[15] ""
+		"   Argument 3"[15] ""
+	}
+	+ObjProp "AI_BodyRsp"
+	{
+		"Priority" "Very high"
+		"Response: Step 1" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1" "Remove"
+		"   Argument 2" "P-UDMTimer"
+		"   Argument 3" ""
+		"Response: Step 2" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[1] "Remove"
+		"   Argument 2"[1] "P-UDMTimerTrig"
+		"   Argument 3"[1] ""
+		"Response: Step 3" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[2] "Remove"
+		"   Argument 2"[2] "P-UDMReset"
+		"   Argument 3"[2] ""
+		"Response: Step 4" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[3] "Remove"
+		"   Argument 2"[3] "P-UDMResetTrig"
+		"   Argument 3"[3] ""
+		"Response: Step 5" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[4] "Remove"
+		"   Argument 2"[4] "P-UDMAbortTrig"
+		"   Argument 3"[4] ""
+		"Response: Step 6" "Add/Remove Meta-property(Add/Remove,Mprop name,Target Objects)"
+		"   Argument 1"[5] "Add"
+		"   Argument 2"[5] "P-UDMReset"
+		"   Argument 3"[5] ""
+		"Response: Step 7" "Nothing()"
+		"   Argument 1"[6] ""
+		"   Argument 2"[6] ""
+		"   Argument 3"[6] ""
+		"Response: Step 8" "Nothing()"
+		"   Argument 1"[7] ""
+		"   Argument 2"[7] ""
+		"   Argument 3"[7] ""
+		"Response: Step 9" "Nothing()"
+		"   Argument 1"[8] ""
+		"   Argument 2"[8] ""
+		"   Argument 3"[8] ""
+		"Response: Step 10" "Nothing()"
+		"   Argument 1"[9] ""
+		"   Argument 2"[9] ""
+		"   Argument 3"[9] ""
+		"Response: Step 11" "Nothing()"
+		"   Argument 1"[10] ""
+		"   Argument 2"[10] ""
+		"   Argument 3"[10] ""
+		"Response: Step 12" "Nothing()"
+		"   Argument 1"[11] ""
+		"   Argument 2"[11] ""
+		"   Argument 3"[11] ""
+		"Response: Step 13" "Nothing()"
+		"   Argument 1"[12] ""
+		"   Argument 2"[12] ""
+		"   Argument 3"[12] ""
+		"Response: Step 14" "Nothing()"
+		"   Argument 1"[13] ""
+		"   Argument 2"[13] ""
+		"   Argument 3"[13] ""
+		"Response: Step 15" "Nothing()"
+		"   Argument 1"[14] ""
+		"   Argument 2"[14] ""
+		"   Argument 3"[14] ""
+		"Response: Step 16" "Nothing()"
+		"   Argument 1"[15] ""
+		"   Argument 2"[15] ""
+		"   Argument 3"[15] ""
+	}
+}
+++Receptron "P-UDMFleeAlerted" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMAbortTrig"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMFleeAlerted" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	Agent Source
+
+	Effect "AwareFilter"
+	{
+		"Abort Unless" "Can't see culprit"
+	}
+}
+++Receptron "P-UDMFleeAlerted" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMAbortTrig"
+
+	Effect "rem_metaprop"
+}
+++StimSource "P-UDMFleeAlerted" "P-UDMPingStim"
+{
+	Intensity 0
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "No Max Firings"
+			"Period" 3000
+			"Max Firings" 0
+			"Intensity Slope" 0.00
+		}
+
+		Shape
+		{
+			"Radius" 30.00
+			"Flags" "[None]"
+			"Dispersion" "None"
+		}
+	}
+}
+CreateArch "UDMFlee" "P-UDMFleeTerminal"
+{
+}
+++Receptron "P-UDMFleeTerminal" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeTerminalTrigger"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMFleeTerminal" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "UDMFleeStore1"
+
+	Effect "clone_props"
+}
+++StimSource "P-UDMFleeTerminal" "P-UDMInertStim"
+{
+	Intensity 1
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "[None]"
+			"Period" 500
+			"Max Firings" 2
+			"Intensity Slope" 0.00
+		}
+
+		Shape
+		{
+			"Radius" 1.00
+			"Flags" "[None]"
+			"Dispersion" "Linear"
+		}
+	}
+}
+CreateArch "UDMFlee" "P-UDMAbortTrig"
+{
+}
+++Receptron "P-UDMAbortTrig" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMTimerTrigger"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMAbortTrig" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMTimer"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMAbortTrig" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMReset"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMAbortTrig" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Target Me
+	//Agent "P-UDMAbortTrig"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMAbortTrig" "P-UDMPulseStim"
+{
+	Min None
+	Max None
+
+	Effect "Abort"
+}
+CreateArch "UDMFlee" "P-UDMTimer"
+{
+}
+++Receptron "P-UDMTimer" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-TimerTrigger"
+
+	Effect "add_metaprop"
+}
+++StimSource "P-UDMTimer" "P-UDMTimerStim"
+{
+	Intensity 1
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "[None]"
+			"Period" 32000
+			"Max Firings" 2
+			"Intensity Slope" 0.00
+		}
+
+		Shape
+		{
+			"Radius" 1.00
+			"Flags" "[None]"
+			"Dispersion" "Linear"
+		}
+	}
+}
+CreateArch "UDMFlee" "P-UDMTimerTrigger"
+{
+}
+++Receptron "P-UDMTimerTrigger" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMAbortTrig"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMTimerTrigger" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMTimer"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMTimerTrigger" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeTerminal"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMTimerTrigger" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMTimerTrigger"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMTimerTrigger" "P-UDMTimerStim"
+{
+	Min 1
+	Max None
+
+	Effect "Abort"
+}
+CreateArch "UDMFlee" "P-UDMFleeTerminalTrigger"
+{
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "UDMFleeStore2"
+
+	Effect "clone_props"
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeTerminal"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeInit"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeTerminalTrigger"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMFleeAlerted"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMFleeTerminalTrigger" "P-UDMInertStim"
+{
+	Min 1
+	Max None
+
+	Effect "Abort"
+}
+CreateArch "UDMFlee" "UDMFleeStore1"
+{
+	+ObjProp "AI_AlertCap"
+	{
+		"Max Level" "(2) Moderate"
+		"Min Level" "(0) None"
+		"Min relax after peak" "(1) Low"
+	}
+	+ObjProp "AI_FleeConds"
+	{
+		"Condition" "On moderate alert"
+		"Pct Hitpoints" 33
+		"Not if # of friends >=" 2
+	}
+}
+CreateArch "UDMFlee" "UDMFleeStore2"
+{
+	+ObjProp "AI_AlertCap"
+	{
+		"Max Level" "(3) High"
+		"Min Level" "(0) None"
+		"Min relax after peak" "(1) Low"
+	}
+	+ObjProp "AI_FleeConds"
+	{
+		"Condition" "On low hitpoints"
+		"Pct Hitpoints" 33
+		"Not if # of friends >=" 2
+	}
+}
+CreateArch "UDMFlee" "P-UDMReset"
+{
+}
+++Receptron "P-UDMReset" "P-UDMResetStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMResetTrigger"
+
+	Effect "add_metaprop"
+}
+++StimSource "P-UDMReset" "P-UDMResetStim"
+{
+	Intensity 1
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "[None]"
+			"Period" 1000
+			"Max Firings" 2
+			"Intensity Slope" 0.00
+		}
+
+		Shape
+		{
+			"Radius" 1.00
+			"Flags" "[None]"
+			"Dispersion" "Linear"
+		}
+	}
+}
+CreateArch "UDMFlee" "P-UDMResetTrigger"
+{
+}
+++Receptron "P-UDMResetTrigger" "P-UDMResetStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMTimer"
+
+	Effect "add_metaprop"
+}
+++Receptron "P-UDMResetTrigger" "P-UDMResetStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMReset"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMResetTrigger" "P-UDMResetStim"
+{
+	Min 1
+	Max None
+
+	Target Me
+	//Agent "P-UDMResetTrigger"
+
+	Effect "rem_metaprop"
+}
+++Receptron "P-UDMResetTrigger" "P-UDMResetStim"
+{
+	Min 1
+	Max None
+
+	Effect "Abort"
+}
+CreateArch "UDMAI" "UDMPlayer"
+{
+	+ObjProp "AI_VisCtrl"
+	{
+		"Low light" 10
+		"Mid light" 15
+		"High light" 25
+		"Slow" 5.49
+		"Fast" 8.25
+		"Slow mod" 0
+		"Norm mod" 5
+		"Fast mod" 10
+		"Wall dist" 1.75
+		"Crouch mod" -3
+		"Wall mod" -3
+		"Corner lean mod" 0.65
+	}
+}
++Receptron "UDMPlayer" "P-UDMPingStim"
+{
+	Min None
+	Max None
+
+	Target Source
+	Agent Me
+
+	Effect "stimulate"
+	{
+		"Stimulus" "P-UDMPulseStim"
+		"Multiply By" 0.00
+		"Then Add" 0.00
+	}
+}
+CreateArch "UDMAI" "UDMMult"
+{
+	+ObjProp "AI_AlSnMul"
+	{
+		"Alert 0: XY angle mult" 1.0
+		"Alert 0: Z angle mult" 1.0
+		"Alert 0: Range mult" 1.0
+		"Alert 0: Knowledge mult" 1.0
+		"Alert 1: XY angle mult" 1.2
+		"Alert 1: Z angle mult" 1.2
+		"Alert 1: Range mult" 1.2
+		"Alert 1: Knowledge mult" 1.2
+		"Alert 2: XY angle mult" 1.25
+		"Alert 2: Z angle mult" 1.2
+		"Alert 2: Range mult" 1.4
+		"Alert 2: Knowledge mult" 1.4
+		"Alert 3: XY angle mult" 1.3
+		"Alert 3: Z angle mult" 1.3
+		"Alert 3: Range mult" 1.5
+		"Alert 3: Knowledge mult" 2.0
+		"Combat knowledge mult" 1.67
+	}
+}
+CreateArch "UDMAI" "UDMCreature"
+{
+	+ObjProp "AI_Hearing" = "Above Average"
+	+ObjProp "AI_VisCtrl"
+	{
+		"Low light" 0
+		"Mid light" 3
+		"High light" 7
+		"Slow" 5.49
+		"Fast" 8.25
+		"Slow mod" 0
+		"Norm mod" 5
+		"Fast mod" 10
+		"Wall dist" 1.75
+		"Crouch mod" -3
+		"Wall mod" -1
+		"Corner lean mod" 0.65
+	}
+	+ObjProp "TimeWarp" = 0.85
+}
+CreateArch "UDMAI" "UDMFoot"
+{
+}
+CreateArch "UDMFoot" "UDMWoodWalkStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+	+ObjProp "SchAttFac" = 1.25
+}
+CreateArch "UDMFoot" "UDMWoodRunStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.40
+}
+CreateArch "UDMFoot" "UDMRockWalkStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+	+ObjProp "SchAttFac" = 1.15
+}
+CreateArch "UDMFoot" "UDMRockRunStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.37
+}
+CreateArch "UDMFoot" "UDMDirtWalkStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.35
+}
+CreateArch "UDMFoot" "UDMDirtRunStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.25
+}
+CreateArch "UDMFoot" "UDMSnowWalkStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+	+ObjProp "SchAttFac" = 1.15
+}
+CreateArch "UDMFoot" "UDMSnowRunStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.37
+}
+CreateArch "UDMFoot" "UDMIceWalkStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+	+ObjProp "SchAttFac" = 1.25
+}
+CreateArch "UDMFoot" "UDMIceRunStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+	+ObjProp "SchAttFac" = 0.40
+}
+CreateArch "UDMFoot" "UDMMajorStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Major anomaly"
+	}
+}
+CreateArch "UDMFoot" "UDMMinorStore"
+{
+	+ObjProp "AI_SndType"
+	{
+		"Type" "Minor anomaly"
+	}
+}
+CreateArch "UDMFoot" "UDMPlayerFootProp"
+{
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min None
+	Max None
+
+	Target Source
+	Agent Me
+
+	Effect "move_obj"
+	{
+		"Position" 0.00, 0.00, 0.00
+		"Heading" 0.00
+		"Pitch" 0.00
+		"Bank" 0.00
+	}
+}
+++Receptron "UDMPlayerFootProp" "UDMPlayerInitStim"
+{
+	Min None
+	Max None
+
+	//Target "UDMSpeedDetector"
+	Agent Me
+
+	Effect "create_obj"
+	{
+		"Position" 0.00, 0.00, 0.00
+		"Heading" 0.00
+		"Pitch" 0.00
+		"Bank" 0.00
+	}
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.91
+	Max 1
+
+	//Target "foot_wood_p"
+	//Agent "UDMWoodWalkStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0
+	Max 0.9099
+
+	//Target "foot_wood_p"
+	//Agent "UDMWoodRunStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.91
+	Max 1
+
+	//Target "foot_rock_p"
+	//Agent "UDMRockWalkStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.91
+	Max 1
+
+	//Target "foot_dirt_p"
+	//Agent "UDMDirtWalkStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.91
+	Max 1
+
+	//Target "foot_snow_p"
+	//Agent "FootWalkSnow"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.91
+	Max 1
+
+	//Target "foot_ice"
+	//Agent "UDMIceWalkStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.96
+	Max None
+
+	//Target "foot_metal_p"
+	//Agent "UDMMinorStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min None
+	Max 0.9599
+
+	//Target "foot_metal_p"
+	//Agent "UDMMajorStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0
+	Max 0.9099
+
+	//Target "foot_rock_p"
+	//Agent "UDMRockRunStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0
+	Max 0.9099
+
+	//Target "foot_dirt_p"
+	//Agent "UDMDirtRunStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0
+	Max 0.9099
+
+	//Target "foot_snow_p"
+	//Agent "UDMSnowRunStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0
+	Max 0.9099
+
+	//Target "foot_ice"
+	//Agent "UDMIceRunStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.96
+	Max None
+
+	//Target "foot_tile_p"
+	//Agent "UDMMinorStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min None
+	Max 0.9599
+
+	//Target "foot_tile_p"
+	//Agent "UDMMajorStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min None
+	Max 0.9599
+
+	//Target "foot_gravel_p"
+	//Agent "UDMMajorStore"
+
+	Effect "clone_props"
+}
+++Receptron "UDMPlayerFootProp" "UDMSpeedTestStim"
+{
+	Min 0.96
+	Max None
+
+	//Target "foot_gravel_p"
+	//Agent "UDMMinorStore"
+
+	Effect "clone_props"
+}
+++StimSource "UDMPlayerFootProp" "UDMPlayerInitStim"
+{
+	Intensity 0
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "[None]"
+			"Period" 5000
+			"Max Firings" 1
+			"Intensity Slope" 0.00
+		}
+
+		Shape
+		{
+			"Radius" 1.00
+			"Flags" "[None]"
+			"Dispersion" "None"
+		}
+	}
+}
+CreateArch "Marker" "UDMSpeedDetector"
+{
+}
++StimSource "UDMSpeedDetector" "UDMSpeedTestStim"
+{
+	Intensity 1.0
+
+	Propagator "Radius"
+	{
+		Life
+		{
+			"Flags" "No Max Firings"
+			"Period" 150
+			"Max Firings" 0
+			"Intensity Slope" 0.0
+		}
+
+		Shape
+		{
+			"Radius" 15.0
+			"Flags" "[None]"
+			"Dispersion" "Linear"
+		}
+	}
+}
+CreateArch "MetaProperty" "M-UltimateDifficultyMod"
+{
+	+ObjProp "Scripts"
+	{
+		"Script 0" UltDiff
+		"Script 1" ""
+		"Script 2" ""
+		"Script 3" ""
+		"Don't Inherit" false
+	}
+}

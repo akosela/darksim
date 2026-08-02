@@ -1,0 +1,108 @@
+DML1
+
+//T1/TG Game System / Make game-specific changes for the Unified Ultimate Difficulty Mod: thief1.dml
+
+FINGERPRINT
+{
+	NAME -1331 "BaffGuard"
+	NAME -1781 "Trickster"
+}
+
+//schema modifications
++ObjProp "AI_INFORM" "SchAttFac" = 1.5
++ObjProp "AI_MAJOR" "SchAttFac" = 1.5
++ObjProp "AI_MORE_MAJOR" "SchAttFac" = 2.0
++ObjProp "AI_COMBAT" "SchAttFac" = 2.0
++ObjProp "PLAYER_DOOR" "SchAttFac" = 1.5
+ObjProp "foot_dirt_p" "SchPlayParams"
+{
+	"Volume" -1
+}
+ObjProp "foot_rock_p" "SchPlayParams"
+{
+	"Volume" -700
+}
+ObjProp "foot_wood_p" "SchPlayParams"
+{
+	"Volume" -700
+}
+
+//AI speed
+ObjProp "bowman" "TimeWarp" = 0.70
+ObjProp "Haunt" "TimeWarp" = 0.65
++ObjProp "ZombieTypes" "TimeWarp" = 0.5
+ObjProp "ApeBeast" "TimeWarp" = 0.6
++ObjProp "BugBeast" "TimeWarp" = 0.8
+ObjProp "BaffGuard" "TimeWarp" = 1.0
+ObjProp "BaffSergeant" "TimeWarp" = 0.9
+ObjProp "CrayBeast" "TimeWarp" = 0.8
+ObjProp "RamirezSarge" "TimeWarp" = 0.7
+ObjProp "thief" "TimeWarp" = 0.6
++ObjProp "Trickster" "TimeWarp" = 0.75
++ObjProp "Spider" "TimeWarp" = 1.0
+ObjProp "Con Guard" "TimeWarp" = 0.75
+ObjProp "ConBowman" "TimeWarp" = 0.6
++ObjProp "AirElement" "TimeWarp" = 0.5
+
+//remove VisDesc
+-ObjProp "FireElement" "AI_VisDesc"
+-ObjProp "Burrick" "AI_VisDesc"
+-ObjProp "FrogBeast" "AI_VisDesc"
+-ObjProp "Trickster" "AI_VisDesc"
+-ObjProp "HugeSpider" "AI_VisDesc"
+-ObjProp "SewerSpider" "AI_VisDesc"
+-ObjProp "SpiderBeast" "AI_VisDesc"
+-ObjProp "AirElement" "AI_VisDesc"
+
+//sound type
+ObjProp "flashbomb_exp" "AI_SndType"
+{
+	"Type" "Combat high"
+}
+ObjProp "bjack_flesh" "AI_SndType"
+{
+	"Type" "Minor anomaly"
+}
++ObjProp "bodythud" "AI_SndType"
+{
+	"Type" "Minor anomaly"
+}
+
+//AI vision modifications
++MetaProp "FireElement" "UDMVision0"
++MetaProp "Burrick" "UDMVision2"
++MetaProp "FrogBeast" "UDMVision05"
++MetaProp "Trickster" "UDMVision35"
++MetaProp "HugeSpider" "UDMVision1"
++MetaProp "SewerSpider" "UDMVision05"
++MetaProp "SpiderBeast" "UDMVision1"
++MetaProp "Cameras" "UDMVision0"
++MetaProp "AirElement" "UDMVision0"
++MetaProp "Creature" "UDMVision3"
+
+//AI flee behavior modifications
++MetaProp "ham guard" "P-UDMFleeInit"
++MetaProp "ApeBeast" "P-UDMFleeInit"
++MetaProp "BugBeast" "P-UDMFleeInit"
++MetaProp "guard" "P-UDMFleeInit"
++MetaProp "Burrick" "P-UDMFleeInit"
++MetaProp "CrayBeast" "P-UDMFleeInit"
++MetaProp "thief" "P-UDMFleeInit"
++MetaProp "Crayman" "P-UDMFleeInit"
++MetaProp "ham priest" "P-UDMFleeInit"
++MetaProp "Mage" "P-UDMFleeInit"
+
+//player modifications
++MetaProp "Garrett" "UDMPlayer"
+
+//AI ability multipliers
++MetaProp "Creature" "UDMMult"
+
+//creature modifications
++MetaProp "Creature" "UDMCreature"
+
+//player footstep modifications
++MetaProp "Garrett" "UDMPlayerFootProp"
+
+//helper script
+MetaProp "Garrett" "M-UltimateDifficultyMod"

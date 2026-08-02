@@ -1,0 +1,3 @@
+This directory is where gamesys-specific changes can me made. By default,
+modifications intended for the original game systems included with Thief and
+Thief 2 are included.

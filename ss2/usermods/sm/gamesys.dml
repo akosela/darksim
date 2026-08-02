@@ -1,0 +1,229 @@
+DML1
+
+// do not load for Secmod
+!FINGERPRINT
+{
+   GAM shocksec.gam 
+}
+
+////Fixes backpedal exploit
+CreateArch "Misc Metaprops" "MonsterChaseFix"
+{
+	+ObjProp "Scripts"
+	{
+		"Script 0" ""
+		"Script 1" ""
+		"Script 2" ""
+		"Script 3" "rsdMonsterChaseFix"
+		"Don't Inherit" false
+	}
+}
++MetaProp -180 "MonsterChaseFix" //Rumbler
++MetaProp -397 "MonsterChaseFix" //OG-Pipe
++MetaProp -2013 "MonsterChaseFix" //Arachnid
++MetaProp -1540 "MonsterChaseFix" //Monkeys
+//midwife handled separately
+
+////Reduces Spider/Monkey/Midwife desired melee distance (makes them MORE likely to hit as they chase more first)
++ObjProp -189 "HTHCombatDist" //Arachnightmare
+{
+    "" 2.00, 3.00, 6.00 //was 2.00, 4.00, 6.00
+}
++ObjProp -1439 "HTHCombatDist" //Invisibile Arachnid
+{
+    "" 2.00, 3.00, 6.00 //was 2.00, 4.00, 6.00
+}
++ObjProp -1540 "HTHCombatDist" //Monkeys
+{
+    "" 2.00, 2.75, 6.00 //was 2.00, 4.00, 6.00
+}
++ObjProp -179 "HTHCombatDist" //Midwife
+{
+    "" 3.00, 5.25, 8.50 //was 3.00, 6.75, 8.5
+}
+
+//Fixes Cyborg Assassin fidgeting
+//Increase turn speed 4x
++ObjProp -1541 "AI_RngShoot" //Assassin
+{
+    "Rotation Speed" 3C000 //was f000
+}
+//Equalize ideal firing distance with fleeing distance
++ObjProp -1541 "AIRCProp" //Assassin
+{
+    "Ideal Distance" 25
+}
+
+////Fixes crouch exploit for Midwife
+//Set up crouch detection script
+CreateArch "Misc Metaprops" "MidwifeCrouchFix"
+{
+	+ObjProp "Scripts"
+	{
+		"Script 0" ""
+		"Script 1" ""
+		"Script 2" ""
+		"Script 3" "rsdMidwifeCrouchFix"
+		"Don't Inherit" false
+	}
+}
++MetaProp -179 "MidwifeCrouchFix" //Midwife
+//Add fake projectile to deal crotch shot damage
+CreateArch "Midwife Spike" "Midwife Spike Proj"
+{
+	+ObjProp "CollisionType"
+	{
+		"" "Bounce, Slay on Impact, Full Collision Sound"
+	}
+	+ObjProp "Position"
+	{
+		"Location" 0.00, 0.00, 0.00
+		"Heading" 0
+		"Pitch" 0
+		"Bank" 0
+	}
+	+ObjProp "PhysType"
+	{
+		"Type" "Sphere"
+		"# Submodels" 1
+		"Remove on Sleep" FALSE
+		"Special" FALSE
+	}
+	+ObjProp "BashFactor"
+	{
+		"" 0.00
+	}
+	+ObjProp "Preload"
+	{
+		"" TRUE
+	}
+	+ObjProp "PhysAttr"
+	{
+		"Gravity %" 0.00
+		"Mass" 1.00
+		"Density" 1000000.00
+		"Elasticity" 1.00
+		"Base Friction" 0.00
+		"COG Offset" 0.00, 0.00, 0.00
+		"Climbable Sides" "[None]"
+		"Flags" "[None]"
+		"Rotation Axes" "X Axis, Y Axis, Z Axis"
+		"Rest Axes" "+X Axis, +Y Axis, +Z Axis, -X Axis, -Y Axis, -Z Axis"
+	}
+	+ObjProp "PhysDims"
+	{
+		"Size" 0.00, 0.00, 0.00
+		"Radius 1" 1.0
+		"Radius 2" 0.00
+		"Offset 1" 0.00, 0.00, 0.00
+		"Offset 2" 0.00, 0.00, 0.00
+		"Point vs Terrain" TRUE
+		"Point vs Not Special" TRUE
+	}
+	+ObjProp "PhysInitVel"
+	{
+		"" 600.00, 0.00, 0.00
+	}
+	+ObjProp "PhysAIColl"
+	{
+		"" FALSE
+	}
+	/*+ObjProp "RenderType"
+	{
+		"" "Not Rendered"
+	}*/
+	+ObjProp "ModelName"
+	{
+		"" "lazbolt2"
+	}
+	+ObjProp "Heartbeat"
+	{
+		"" 1000
+	}
+	+ObjProp "arSrcScale"
+	{
+		"" 1.0
+	}
+}
+//Add normal collision to the melee attack for stim propagation
++StimSource -2775 "WeaponBash" 00900053 //Midwife Spike
+{
+	Propagator "Contact"
+	{
+		Shape
+		{
+			"Contact Types" "Weapon Swing Low, Weapon Swing Med, Weapon Swing High, Collision"
+			"Velocity Coeff" 0.00
+			"Frob Time Coeff" 0.00
+		}
+	}
+}
+
+////Fixes enemies firing through objects due to launch point getting inside
++Link -171 -1500 "AIProjectile" 02E00003 //Maintenance -> Droid Spark
+{
+	"Launch Joint" "Right Elbow" //was "Right Wrist"
+}
++Link -172 -1501 "AIProjectile" 02E00004 //Security -> Droid Laser Bolt
+{
+	"Launch Joint" "Right Elbow" //was "N/A"
+}
++Link -173 -1502 "AIProjectile" 02E00006 //Maintenance -> Droid Fusion Shot
+{
+	"Launch Joint" "Right Elbow" //was "N/A"
+}
++Link -175 -676 "AIProjectile" 02E00000 //OG-Shotgun -> Grunt Shotgun Slug
+{
+	"Launch Joint" "Right Shoulder" //was "Right Fingers"
+}
++Link -179 -1603 "AIProjectile" 02E00002 //Midwife -> Midwife Shot
+{
+	"Launch Joint" "Right Shoulder" //was "Right Fingers"
+}
++Link -1541 -2824 "AIProjectile" 02E0000B //Assassin -> Ninja Shot
+{
+	"Launch Joint" "Right Wrist" //"Left Elbow" //was "Right Wrist"
+}
+//Note: needs to also be applied to every AI individually in maps...
+//or scripted below
+CreateArch "Misc Metaprops" "AttackJointFix"
+{
+	+ObjProp "Scripts"
+	{
+		"Script 0" "rsdAttackJointFix"
+		"Script 1" ""
+		"Script 2" ""
+		"Script 3" ""
+		"Don't inherit" false
+	}
+}
++MetaProp -1405 "AttackJointFix" //Big Droids
++MetaProp -175 "AttackJointFix" //OG-Shotgun
++MetaProp -176 "AttackJointFix" //OG-Grenade
++MetaProp -179 "AttackJointFix" //Midwife
++MetaProp -1541 "AttackJointFix" //Assassin
+
+////Fixes turrets failing to hit player at point blank range
++ObjProp -170 "AIGunDesc" //Turret Slug Thrower
+{
+	"Fire Offset" "-2,0,0" //was "-1,0,0"
+}
++ObjProp -1417 "AIGunDesc" //Turret Laser
+{
+	"Fire Offset" "-2,0,0" //was "-1,0,0"
+}
++ObjProp -1418 "AIGunDesc" //Turret Rocket Launcher
+{
+	"Fire Offset" "-2,0,0" //was "-1,0,0"
+}
+
+////Reduces Laser Turret velocity by 25%
++ObjProp -1414 "PhysInitVel"
+{
+	"" "150,0,0" //was "200,0,0"
+}
+//and Rick Turret by 33%
++ObjProp -4649 "PhysInitVel"
+{
+	"" "200,0,0" //was "300,0,0"
+}
