@@ -16,3 +16,9 @@ TagBlock "DIFFPARAM"
 	"HP per END: Imposs" 1
 	"HP per END: Multi" 1
 }
+
+// Destroy Psi Amp
++ObjProp "Psi Amp" "Scripts"
+{
+  "Script 3" "NoPsiAmp"
+}
