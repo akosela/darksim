@@ -17,8 +17,56 @@ TagBlock "DIFFPARAM"
 	"HP per END: Multi" 1
 }
 
+// Fixed base statistics.
++ObjProp "The Player" "BaseStatsDesc"
+{
+  "STR" 1
+  "END" 1
+  "PSI" 1
+  "AGI" 1
+  "CYB" 1
+}
+
++ObjProp "The Player" "BaseWeaponDesc"
+{
+  "Conventional" 6
+  "Energy" 6
+  "Heavy" 6
+  "Annelid" 6
+}
+
++ObjProp "The Player" "BaseTechDesc"
+{
+  "Hack" 6
+  "Repair" 6
+  "Modify" 6
+  "Maintain" 6
+  "Research" 6
+}
+
++ObjProp "The Player" "PsiPowerDesc"
+{
+  "" 0
+}
+
++ObjProp "The Player" "PsiPower2Desc"
+{
+  "" 0
+}
+
 // Destroy Psi Amp
 +ObjProp "Psi Amp" "Scripts"
 {
   "Script 3" "NoPsiAmp"
+}
+
+// Destroy Trait Machines
++ObjProp "Trait Machine" "Scripts"
+{
+  "Script 3" "NoTraits"
+}
+
++ObjProp "The Player" "CharGenYear"
+{
+  "" 2
 }

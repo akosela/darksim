@@ -1,0 +1,7 @@
+DML1
+
+// Resets the player's stats
++ObjProp 869 "Scripts" //A Wedge Wall Light
+{
+  "Script 3" "ResetStats"
+}
