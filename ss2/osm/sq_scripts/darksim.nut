@@ -1,16 +1,8 @@
-class NoPsiAmp extends SqRootScript
+class DestroyOnSpawn extends SqRootScript
 {
   function OnBeginScript()
   {
-    print("NoPsiAmp: deleting Psi Amp");
-    Object.Destroy(self);
-  }
-}
-
-class NoTraits extends SqRootScript
-{
-  function OnBeginScript()
-  {
+    print("DestroyOnSpawn: destroy object");
     Object.Destroy(self);
   }
 }

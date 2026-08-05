@@ -57,13 +57,40 @@ TagBlock "DIFFPARAM"
 // Destroy Psi Amp
 +ObjProp "Psi Amp" "Scripts"
 {
-  "Script 3" "NoPsiAmp"
+  "Script 3" "DestroyOnSpawn"
 }
 
-// Destroy Trait Machines
+// Cyber Module pickups.
++ObjProp "Cyber Module" "Scripts"
+{
+  "Script 3" "DestroyOnSpawn"
+}
+
+// O/S trait machines.
 +ObjProp "Trait Machine" "Scripts"
 {
-  "Script 3" "NoTraits"
+  "Script 3" "DestroyOnSpawn"
+}
+
+// Cyber Module upgrade machines.
++ObjProp "Stats Trainer" "Scripts"
+{
+  "Script 3" "DestroyOnSpawn"
+}
+
++ObjProp "Tech Trainer" "Scripts"
+{
+  "Script 3" "DestroyOnSpawn"
+}
+
++ObjProp "Weapon Trainer" "Scripts"
+{
+  "Script 3" "DestroyOnSpawn"
+}
+
++ObjProp "Psi Trainer" "Scripts"
+{
+  "Script 3" "DestroyOnSpawn"
 }
 
 +ObjProp "The Player" "CharGenYear"
