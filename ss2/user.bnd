@@ -140,6 +140,7 @@ bind w +walkfast
 bind w+alt+shift ai_draw_suggestsions
 bind x +leanforward
 bind x+alt+shift quit_game
+bind / query
 
 lookspring 0
 mouse_invert 0
