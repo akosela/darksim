@@ -93,6 +93,48 @@ TagBlock "DIFFPARAM"
   "Script 3" "DestroyOnSpawn"
 }
 
+// Remove base-stat requirements from weapons.
++ObjProp "assault rifle" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
++ObjProp "laser rapier" "ReqStatsDesc"
+{
+  "AGI" 1
+}
+
++ObjProp "stasis field generator" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
++ObjProp "fusion cannon" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
+// Remove base-stat requirements from armor.
++ObjProp "light armor" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
++ObjProp "reflec armor" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
++ObjProp "medium armor" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
++ObjProp "heavy armor" "ReqStatsDesc"
+{
+  "STR" 1
+}
+
 +ObjProp "The Player" "CharGenYear"
 {
   "" 2
