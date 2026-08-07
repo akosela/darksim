@@ -12,8 +12,7 @@ supported:
   dump_cmds ss2_commands.txt
 
 The engine writes its registered command list to a text file. This is the best
-way to
-catch build-specific, undocumented, editor-only, or mod-added commands.
+way to catch build-specific, undocumented, editor-only, or mod-added commands.
 
 Some of the commands listed in this reference are not directly relevant to
 DarkSim. They are included for completeness, however, as they help document
@@ -43,6 +42,9 @@ example +fire_weapon in a .bnd file.
 ==============================================================================
 1. NORMAL GAMEPLAY / INPUT COMMANDS
 ==============================================================================
+
+show_version
+  Displays the Dark Engine / SS2 version while in game mode.
 
 psi_power <1..5>
   Switches the active Psi tier.
