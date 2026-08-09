@@ -29,6 +29,7 @@ Classic/NewDark:
 Commands are generally case-insensitive.
 
 Arguments in this file:
+
   #  numeric argument
   <0|1>  off/on switch
   <name>  object/archetype/resource name
@@ -54,8 +55,8 @@ select_psipower
 cycle_weapon <1|-1>
   Cycles to the next or previous equippable weapon.
   Example:
-  cycle_weapon 1
-  cycle_weapon -1
+    cycle_weapon 1
+    cycle_weapon -1
 
 fire_weapon <0|1>
   Starts/stops firing the current weapon.
@@ -77,7 +78,7 @@ cycle_ammo
 equip_weapon <object-name>
   Searches inventory for the named weapon/archetype and equips it.
   Example:
-  equip_weapon assault rifle
+    equip_weapon assault rifle
 
 select_gun <name-or-id>
   Developer-level weapon selection command. Selects/readies a gun by object
@@ -86,7 +87,7 @@ select_gun <name-or-id>
 use_obj <object-name>
   Uses an inventory object by archetype/name.
   Example:
-  use_obj med patch
+    use_obj med patch
 
 interface_use
   Performs the inventory/interface "use" action on the selected item.
@@ -171,6 +172,7 @@ open_mfd <overlay-number>
   Opens an MFD/overlay by internal overlay number.
 
 Useful SS2 upgrade overlays:
+
   open_mfd 35  Stats upgrade interface
   open_mfd 36  Tech upgrade interface
   open_mfd 37  Weapon upgrade interface
@@ -187,7 +189,7 @@ overlay_toggle <overlay-number>
 add_pool <number>
   Adds Cyber Modules to the player's module pool.
   Example:
-  add_pool 50
+    add_pool 50
 
 psi_full
   Refills/maxes the player's current Psi points.
@@ -221,7 +223,7 @@ unstick_player
 teleport_player <x,y,z>
   Teleports the player to world coordinates.
   Example:
-  teleport_player -34,-23,3
+    teleport_player -34,-23,3
 
 log_player_pos
   Prints/logs the player's current world coordinates.
@@ -235,7 +237,7 @@ halt_player
 scale_player_speed <factor>
   Scales player movement speed in builds where enabled.
   Example:
-  scale_player_speed 1.5
+    scale_player_speed 1.5
 
 time_passes <0|1>
   Controls whether simulation time advances. Mostly developer/editor
@@ -244,7 +246,7 @@ time_passes <0|1>
 scale_sim_time <factor>
   Scales simulation speed.
   Example:
-  scale_sim_time 0.5
+    scale_sim_time 0.5
   Known to be useful in editor/debug contexts; normal-game behavior is
   build-dependent.
 
@@ -257,15 +259,14 @@ show_sim_time
 
 summon_obj <archetype-name-or-object-code>
   Creates an instance of an object/archetype near the player.
-
-Examples:
-  summon_obj pistol
-  summon_obj shotgun
-  summon_obj assault rifle
-  summon_obj psi amp
-  summon_obj wrench
-  summon_obj big nanite pile
-  summon_obj nav marker
+  Examples:
+    summon_obj pistol
+    summon_obj shotgun
+    summon_obj assault rifle
+    summon_obj psi amp
+    summon_obj wrench
+    summon_obj big nanite pile
+    summon_obj nav marker
 
 Important:
   - Names with spaces are entered as ordinary command arguments; quoting is
@@ -415,15 +416,12 @@ recycler
 research soft v1
 research soft v2
 research soft v3
-
 hack soft v1
 hack soft v2
 hack soft v3
-
 repair soft v1
 repair soft v2
 repair soft v3
-
 modify soft v1
 modify soft v2
 modify soft v3
@@ -494,7 +492,6 @@ chip a
 chip b
 chip c
 big bomb
-
 bridge card
 cargo bay 2a/2b
 cryo card
@@ -509,18 +506,18 @@ r and d card
 science card
 security card
 shuttle access key
-
 nikki_card
 candy_card
 lance_card
 sven_card
 
-Unused/odd key archetypes that may exist:
-  crew 2 card
-  cargo bay 1a/1b
-  eng override key
-  med card
-  med annex key
+--- Unused/odd key archetypes that may exist
+
+crew 2 card
+cargo bay 1a/1b
+eng override key
+med card
+med annex key
 
 WARNING:
   Key and plot objects are especially risky to summon because mission logic
@@ -553,14 +550,12 @@ kangaroo quarterly
 rolling monthly
 cigar lover
 vita men's monthly
-
 chips
 soda can
 juice bottle
 champagne bottle
 liquor bottle
 vodka bottle
-
 mug
 plant #2
 cigarettes
@@ -627,7 +622,6 @@ femaleops
 femalerec
 femaleflight
 femalerick
-
 maleeng
 malemedsci
 malehydro
@@ -635,13 +629,12 @@ maleops
 malerec
 maleflight
 malerick
-
 crewwoman
 crewman
 
 Because crew archetype spelling is inconsistent in historical lists, use
-console autocomplete or dump the actual GameSys/archetype name before relying on a
-pattern.
+console autocomplete or dump the actual GameSys/archetype name before relying
+on a pattern.
 
 --- Upgrade / medical / security devices
 ---------------------------------------
@@ -651,11 +644,9 @@ tech trainer
 weapon trainer
 psi trainer
 trait machine
-
 med bed
 partial med bed
 bloody_medbed
-
 security comp
 usable comp
 keypad
@@ -870,7 +861,8 @@ linear_map
 surface_cache
   Low-level Dark Engine renderer/portal/lightmap/rasterizer diagnostic
   commands.
-  Most are intended for engine development or ShockEd and should not be treated as
+  Most are intended for engine development or ShockEd and should not be
+  treated as
   normal gameplay cheats. Some may be inert or unavailable in a retail/NewDark
   build.
 
@@ -1073,30 +1065,30 @@ If:
 
 does not work:
 
-1. Try the exact internal archetype spelling, not the localized display name.
-2. Try console autocomplete if your build provides it.
-3. Inspect object-name strings/resources or the GameSys object hierarchy.
-4. Remember that underscores, spaces, punctuation and abbreviations matter.
-5. Some objects have a human-readable display name that differs from the
-archetype.
-6. Some archetypes are abstract parents and may not instantiate usefully.
-7. Some unique mission objects cannot be recreated correctly from their
-archetype alone.
-8. If you need the object ID of an already placed instance, use
-editor/object-inspection
-  tools rather than guessing from the display name.
+- 1. Try the exact internal archetype spelling, not the localized display
+  name.
+- 2. Try console autocomplete if your build provides it.
+- 3. Inspect object-name strings/resources or the GameSys object hierarchy.
+- 4. Remember that underscores, spaces, punctuation and abbreviations matter.
+- 5. Some objects have a human-readable display name that differs from the
+  archetype.
+- 6. Some archetypes are abstract parents and may not instantiate usefully.
+- 7. Some unique mission objects cannot be recreated correctly from their
+  archetype alone.
+- 8. If you need the object ID of an already placed instance, use
+  editor/object-inspection tools rather than guessing from the display name.
 
 For your supplied shock2.gam, strings directly confirm names including:
-  Pistol
-  Shotgun
-  Assault Rifle
-  Laser Pistol
-  Psi Amp
-  PsiSword
-  Wrench
-  Nav Marker
-  EXP Cookies
-  Nanites
+- Pistol
+- Shotgun
+- Assault Rifle
+- Laser Pistol
+- Psi Amp
+- PsiSword
+- Wrench
+- Nav Marker
+- EXP Cookies
+- Nanites
 
 ==============================================================================
 12. EXACT "ALL COMMANDS" WORKFLOW FOR YOUR OWN SS2.EXE
@@ -1116,7 +1108,8 @@ That generated file is more authoritative than any internet list because it is
 created from the exact executable you are running.
 
 If dump_cmds is unavailable, console autocomplete can still expose many
-registered commands, but it is less convenient for creating a complete reference.
+registered commands, but it is less convenient for creating a complete
+reference.
 
 ==============================================================================
 12. SOURCES / VERIFICATION NOTES
@@ -1131,10 +1124,10 @@ This reference was compiled from:
     archetypes.
 
 Useful public references:
-  https://shodan.fandom.com/wiki/Commands_(System_Shock_2)
-  https://www.systemshock.org/index.php?topic=2307.0
-  https://www.systemshock.org/index.php?topic=5798.0
-  https://www.systemshock.org/index.php?topic=4533.0
+- https://shodan.fandom.com/wiki/Commands_(System_Shock_2)
+- https://www.systemshock.org/index.php?topic=2307.0
+- https://www.systemshock.org/index.php?topic=5798.0
+- https://www.systemshock.org/index.php?topic=4533.0
 
 NOTE ON COMPLETENESS
 --------------------
@@ -1146,7 +1139,9 @@ NOTE ON COMPLETENESS
   C. Build-specific console variables and editor/debug commands.
 
 This file includes A comprehensively and includes known B command families,
-but the exact executable-generated result from dump_cmds is the final authority
-for B. Console variables (CVars) are a separate namespace and are not exhaustively
+but the exact executable-generated result from dump_cmds is the final
+authority
+for B. Console variables (CVars) are a separate namespace and are not
+exhaustively
 enumerated here because they are build-specific and are not all executable 
 commands.
